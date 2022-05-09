@@ -32,6 +32,7 @@
 @section('scripts') 
 <script>
 $(function(){
+    $("a#a-{{ \Session::get('ques1') }}").children('img').prop('src', "{{ asset('/img/Selected.png') }}");
     $('a[id^="a-"]').on('click', function(){
         var ans = $(this).prop('id').replace('a-', '');
         if(ans == 'Yes') {

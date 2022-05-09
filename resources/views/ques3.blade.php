@@ -32,6 +32,8 @@
 @section('scripts') 
 <script>
 $(function(){
+    $("a#a-{{ \Session::get('ques3') }}").children('img').prop('src', "{{ asset('/img/Selected.png') }}");
+
     $('a[id^="a-"]').on('click', function(){
         var ans = $(this).prop('id').replace('a-', '');
         if(ans == 'Before2002') {
@@ -42,7 +44,7 @@ $(function(){
             $('a#a-Before2002').children('img').prop('src', "{{ asset('/img/Not-selected.png') }}");
         }
 
-        var arg = '_token='+$('input[name="_token"]').val()+'&ques2='+ans+'&ques=ques2';
+        var arg = '_token='+$('input[name="_token"]').val()+'&ques3='+ans+'&ques=ques3';
         //alert(arg);return false;
         $.ajax({
             url: "{{ route('submitques') }}",
